@@ -1,0 +1,5 @@
+log
+.env
+.ruby-version
+*.staging
+*.production
