@@ -61,7 +61,7 @@ namespace :yep_ws_server do
 
         info "Need start ports: #{dead_ports}"
         dead_ports.each do |port|
-          execute :ruby, "server.rb -e #{goliath_env} -p #{port} -d -l log/#{goliath_env}.log -P #{pidfile_path}/#{port}.pid"
+          execute :ruby, "yep_ws_server.rb -e #{goliath_env} -p #{port} -d -l log/#{goliath_env}.log -P #{pidfile_path}/#{port}.pid"
         end
       end
     end
