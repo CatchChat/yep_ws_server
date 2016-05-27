@@ -59,7 +59,7 @@ class App
     private
 
     def parse_user_id_and_token_from_url(url)
-      URI.parse(url).path[1..-1].split(':')
+      URI.parse(url).path.sub('/websocket', '')[1..-1].split(':')
     end
   end
 end

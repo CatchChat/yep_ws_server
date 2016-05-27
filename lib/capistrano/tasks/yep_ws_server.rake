@@ -11,7 +11,7 @@ namespace :yep_ws_server do
       _running_port_with_pid_map = get_running_port_with_pid_map(goliath_env)
       within current_path do
         if _running_port_with_pid_map.keys.size == worker_processes
-          info 'Goliath is running.'
+          info 'Server is running.'
         else
           all_ports  = (start_port...(start_port + worker_processes)).to_a
           dead_ports = all_ports - _running_port_with_pid_map.keys
