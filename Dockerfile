@@ -5,5 +5,5 @@ WORKDIR $WORKDIR
 ADD . $WORKDIR
 RUN bundle install --without development test --deployment
 RUN mkdir -p tmp/pids
-EXPOSE $PORT
-CMD bundle exec ruby yep_ws_server.rb -l log/$GOLIATH_ENV.log -e $GOLIATH_ENV -p $PORT -v
+EXPOSE 9000
+CMD bundle exec ruby yep_ws_server.rb -l log/$GOLIATH_ENV.log -e $GOLIATH_ENV -p 9000 -v
