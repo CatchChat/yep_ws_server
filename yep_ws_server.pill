@@ -9,7 +9,7 @@ Bluepill.application("yep_ws_server", log_file: "#{ENV['WORKING_DIR']}/log/bluep
       process.restart_grace_time  = 45.seconds
 
       pidfile = "#{ENV['WORKING_DIR']}/#{ENV['PIDFILE_PATH']}/#{port}.pid"
-      process.start_command = "/bin/su - deploy -c 'cd #{ENV['WORKING_DIR']} && (RBENV_ROOT=#{ENV['RBENV_ROOT']} RBENV_VERSION=#{ENV['RBENV_VERSION']} #{ENV['RBENV_ROOT']}/bin/rbenv exec ruby yep_ws_server.rb -e #{ENV['GOLIATH_ENV']} -p #{port} -d -l log/#{ENV['GOLIATH_ENV']}.log -P #{pidfile})'"
+      process.start_command = "/bin/su - deploy -c 'cd #{ENV['WORKING_DIR']} && (RBENV_ROOT=#{ENV['RBENV_ROOT']} RBENV_VERSION=#{ENV['RBENV_VERSION']} #{ENV['RBENV_ROOT']}/bin/rbenv exec ruby yep_ws_server.rb -e #{ENV['RACK_ENV']} -p #{port} -d -l log/#{ENV['RACK_ENV']}.log -P #{pidfile})'"
       process.stop_command  = "/bin/su - deploy -c 'kill -TERM `cat #{pidfile}`'"
 
       process.pid_file = pidfile

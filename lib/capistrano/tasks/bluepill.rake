@@ -7,10 +7,10 @@ namespace :bluepill do
     start_port       = fetch(:goliath_start_port).to_i || 9000
     start_port       = 9000 if start_port <= 0
     pidfile_path     = fetch(:goliath_pidfile_path) || 'tmp/pids'
-    goliath_env      = fetch(:goliath_env) || fetch(:stage)
+    rack_env         = fetch(:rack_env) || fetch(:stage)
     on roles(:app) do
       within current_path do
-        execute :sudo, "RBENV_ROOT=#{fetch(:rbenv_path)} RBENV_VERSION=#{fetch(:rbenv_ruby)} WORKING_DIR=#{current_path} WORKER_PROCESSES=#{worker_processes} START_PORT=#{start_port} GOLIATH_ENV=#{goliath_env} PIDFILE_PATH=#{pidfile_path} bluepill load yep_ws_server.pill"
+        execute :sudo, "RBENV_ROOT=#{fetch(:rbenv_path)} RBENV_VERSION=#{fetch(:rbenv_ruby)} WORKING_DIR=#{current_path} WORKER_PROCESSES=#{worker_processes} START_PORT=#{start_port} RACK_ENV=#{goliath_env} PIDFILE_PATH=#{pidfile_path} bluepill load yep_ws_server.pill"
       end
     end
   end

@@ -40,9 +40,9 @@ set :rbenv_custom_path, '/opt/rbenv'
 
 # Server
 set :goliath_worker_processes, 1
-set :goliath_start_port, 10000
+set :goliath_start_port, 9000
 set :goliath_pidfile_path, 'tmp/pids'
-set :goliath_env, fetch(:stage)
+set :rack_env, fetch(:stage)
 
 namespace :deploy do
   task :start do
