@@ -3,7 +3,6 @@ FROM ruby:2.3.1
 ENV WORKDIR /var/www
 WORKDIR $WORKDIR
 ADD . $WORKDIR
-RUN rm .env
 RUN bundle install --without development test --deployment
 RUN mkdir -p tmp/pids
 EXPOSE 9000
