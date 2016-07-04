@@ -1,7 +1,7 @@
 require_relative 'boot'
 Bundler.require :default
 require 'goliath'
-if Goliath.env?('development')
+if File.exist?('.env')
   require 'dotenv'
   Dotenv.load!
 end
